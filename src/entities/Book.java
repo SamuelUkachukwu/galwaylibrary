@@ -4,8 +4,8 @@ public class Book {
 
    protected String bookName;
    protected String author;
-   private final int bookId;
-   private final int yearPublished;
+   private int bookId;
+   private int yearPublished;
    private boolean borrowed;
    // private int quantity;
 
@@ -29,6 +29,33 @@ public class Book {
    public boolean isBorrowed() {
       return borrowed;
    }
+
+   public String getAuthor() {
+      return author;
+   }
+
+   public int getYearPublished() {
+      return yearPublished;
+   }
+
+   // ---Setters
+   public void setBookName(String bookName) {
+      this.bookName = bookName;
+   }
+
+   public void setAuthor(String author) {
+      this.author = author;
+   }
+
+   public void setBookId(int bookId) {
+      this.bookId = bookId;
+   }
+
+   public void setYearPublished(int yearPublished) {
+      this.yearPublished = yearPublished;
+   }
+
+   // ---Methods
 
    public void borrowBook() {
       this.borrowed = true;
