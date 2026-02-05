@@ -16,16 +16,25 @@ public class Book {
       this.yearPublished = yearPublished;
       this.borrowed = false;
    }
-   //---Getters---
-   public String getBookName(){return bookName;}
-   public int getBookId(){return bookId;}
-   
-   public boolean isBorrowed(){return borrowed;}
-   
-   public void borrowBook(){
+
+   // ---Getters
+   public String getBookName() {
+      return bookName;
+   }
+
+   public int getBookId() {
+      return bookId;
+   }
+
+   public boolean isBorrowed() {
+      return borrowed;
+   }
+
+   public void borrowBook() {
       this.borrowed = true;
    }
-   public void returnBook(){
+
+   public void returnBook() {
       this.borrowed = false;
    }
 }
