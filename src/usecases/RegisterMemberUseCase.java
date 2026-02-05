@@ -3,11 +3,11 @@ package usecases;
 import entities.Member;
 import adapters.LibraryRepository;
 
-public class AddMember {
-    
+public class RegisterMemberUseCase {
+
     private final LibraryRepository libraryRepository;
 
-    public AddMember(LibraryRepository libraryRepository) {
+    public RegisterMemberUseCase(LibraryRepository libraryRepository) {
         this.libraryRepository = libraryRepository;
     }
 

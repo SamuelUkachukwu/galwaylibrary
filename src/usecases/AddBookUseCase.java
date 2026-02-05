@@ -3,10 +3,10 @@ package usecases;
 import adapters.LibraryRepository;
 import entities.Book;
 
-public class AddBook {
+public class AddBookUseCase {
     private final LibraryRepository libraryRepository;
 
-    public AddBook(LibraryRepository libraryRepository) {
+    public AddBookUseCase(LibraryRepository libraryRepository) {
         this.libraryRepository = libraryRepository;
     }
 
