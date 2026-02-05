@@ -14,7 +14,7 @@ public class BorrowBookUseCase {
         Book book = libraryRepository.findBookById(bookId);
         Member member = libraryRepository.findMemberById(memberId);
 
-        if (book != null && book.isAvailable()) {
+        if (book != null && member != null && book.isAvailable()) {
             book.borrowBook();
             //book.setBookId(true);
             //libraryRepository.updateBook(book);
