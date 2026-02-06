@@ -1,27 +1,23 @@
-# # Java compiled files
-# *.class
+# Java compiled files
+*.class
 
-# # Build output (common locations)
-# out/
-# bin/
-# target/
-# build/
+# Build output
+out/
+bin/
+target/
+build/
 
-# # If compiled classes ever end up inside src (not recommended)
-# src/**/bin/
-# src/**/out/
+# Logs
+*.log
 
-# # Logs
-# *.log
+# OS junk
+.DS_Store
+Thumbs.db
 
-# # OS junk
-# .DS_Store
-# Thumbs.db
-
-# # IDE files
-# .idea/
-# .vscode/
-# *.iml
-# .classpath
-# .project
-# .settings/
+# IDE files
+.idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
