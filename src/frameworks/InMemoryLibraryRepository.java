@@ -1,14 +1,14 @@
 package frameworks;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import adapters.LibraryRepository;
 import entities.Book;
 import entities.BorrowRecord;
 import entities.Member;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InMemoryLibraryRepository implements LibraryRepository {
+
     private final List<Book> books = new ArrayList<>();
     private final List<Member> members = new ArrayList<>();
     private final List<BorrowRecord> borrowRecords = new ArrayList<>();
@@ -53,10 +53,20 @@ public class InMemoryLibraryRepository implements LibraryRepository {
         borrowRecords.add(record);
     }
 
-    // @Override
-    // public void updateBook(Book book) {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'updateBook'");
-    // }
+    @Override
+    public List<BorrowRecord> getBorrowRecords() {
+        return borrowRecords;
+    }
+
+    @Override
+    public void showBooksInMemberPossession(int memberId, List<BorrowRecord> records) {
+        for (BorrowRecord r : records) {
+            if (r.getMemberId() == memberId && !r.isReturned()) {
+                System.out.println("Book ID: " + r.getBookId());
+            } else {
+                System.out.println("Library Member: " + memberId + " has no books in possession");
+            }
+        }
+    }
 
 }

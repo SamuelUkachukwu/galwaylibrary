@@ -56,13 +56,12 @@ public class Book {
    }
 
    // ---Methods
-
    public void borrowBook() {
       this.available = false;
    }
 
    public void returnBook() {
-      this.available = false;
+      this.available = true;
    }
 
    @Override
