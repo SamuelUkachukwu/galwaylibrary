@@ -60,12 +60,17 @@ public class InMemoryLibraryRepository implements LibraryRepository {
 
     @Override
     public void showBooksInMemberPossession(int memberId, List<BorrowRecord> records) {
+        boolean found = false;
+
         for (BorrowRecord r : records) {
             if (r.getMemberId() == memberId && !r.isReturned()) {
                 System.out.println("Book ID: " + r.getBookId());
-            } else {
-                System.out.println("Library Member: " + memberId + " has no books in possession");
+                found = true;
             }
+        }
+
+        if (!found) {
+            System.out.println("Library Member: " + memberId + " has no books in possession");
         }
     }
 
