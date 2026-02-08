@@ -11,8 +11,21 @@ public class SearchBookUsecase {
         this.libraryRepository = libraryRepository;
     }
 
+    public String searchById(String bookId) {
+        Optional<Book> optionalBook = libraryRepository.findBookById(bookId);
 
-    public Optional<Book> searchBookById(String bookId) {
-        return libraryRepository.findBookById(bookId);
+        if(optionalBook.isPresent()) {
+            Book book = optionalBook.get();
+
+            return "Title: " + book.getBookName()
+                + "Author: " + book.getAuthor()
+                + "Year Published: " + book.yearPublished();
+        } else {
+            return "Book not found";
+        }
     }
+
+    // public Optional<Book> searchBookById(String bookId) {
+    //     return libraryRepository.findBookById(bookId);
+    // }
 }
