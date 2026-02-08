@@ -7,16 +7,13 @@ public class Book {
     private String bookId;
     private int yearPublished;
     private BookStatus status;
-    //private boolean available;
-    // private int quantity;
 
-    public Book(String bookId, String bookName, String author, int yearPublished, //boolean isAvailable) {
+    public Book(String bookId, String bookName, String author, int yearPublished) {
         this.bookId = bookId;
         this.bookName = bookName;
         this.author = author;
         this.yearPublished = yearPublished;
         this.status = BookStatus.AVAILABLE;
-        //this.available = true;
     }
 
     // ---Getters
@@ -30,7 +27,6 @@ public class Book {
 
     public boolean isAvailable() {
         return status == BookStatus.AVAILABLE;
-        //return available;
     }
 
     public String getAuthor() {
@@ -60,19 +56,17 @@ public class Book {
 
     // ---Methods
     public void borrowBook() {
-        if(!isAvailable()) {
+        if (!isAvailable()) {
             throw new IllegalStateException("Book is out on loan");
         }
         this.status = BookStatus.BORROWED;
-        //this.available = false;
     }
 
     public void returnBook() {
-        if(isAvailable()) {
+        if (isAvailable()) {
             throw new IllegalStateException("Book is available");
         }
         this.status = BookStatus.AVAILABLE;
-        //this.available = true;
     }
 
     @Override

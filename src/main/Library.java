@@ -15,16 +15,16 @@ public class Library {
         repo.addMember(new Member("Emily", "Wilson"));
         repo.addMember(new Member("David", "Anderson"));
 
-        repo.addBook(new Book("ISBN001", "The Hobbit", "Tolkien", 1937, true));
-        repo.addBook(new Book("ISBN002", "1984", "Orwell", 1949, true));
-        repo.addBook(new Book("ISBN003", "Dune", "Herbert", 1965, true));
-        repo.addBook(new Book("ISBN004", "Foundation", "Asimov", 1951, true));
-        repo.addBook(new Book("ISBN005", "Dracula", "Stoker", 1897, true));
-        repo.addBook(new Book("ISBN006", "Hamlet", "Shakespeare", 1603, true));
-        repo.addBook(new Book("ISBN007", "The Stand", "King", 1978, true));
-        repo.addBook(new Book("ISBN008", "The Alchemist", "Coelho", 1988, true));
-        repo.addBook(new Book("ISBN009", "Sapiens", "Harari", 2011, true));
-        repo.addBook(new Book("ISBN010", "The Martian", "Weir", 2014, true));
+        repo.addBook(new Book("ISBN001", "The Hobbit", "Tolkien", 1937));
+        repo.addBook(new Book("ISBN002", "1984", "Orwell", 1949));
+        repo.addBook(new Book("ISBN003", "Dune", "Herbert", 1965));
+        repo.addBook(new Book("ISBN004", "Foundation", "Asimov", 1951));
+        repo.addBook(new Book("ISBN005", "Dracula", "Stoker", 1897));
+        repo.addBook(new Book("ISBN006", "Hamlet", "Shakespeare", 1603));
+        repo.addBook(new Book("ISBN007", "The Stand", "King", 1978));
+        repo.addBook(new Book("ISBN008", "The Alchemist", "Coelho", 1988));
+        repo.addBook(new Book("ISBN009", "Sapiens", "Harari", 2011));
+        repo.addBook(new Book("ISBN010", "The Martian", "Weir", 2014));
     }
 
     public static void main(String[] args) {
@@ -67,9 +67,7 @@ public class Library {
                         int publicationYear = scanner.nextInt();
                         scanner.nextLine();
 
-                        boolean isAvailable = true;
-
-                        Book book = new Book(bookId, bookName, authorName, publicationYear, isAvailable);
+                        Book book = new Book(bookId, bookName, authorName, publicationYear);
                         bookRepo.addBook(book);
 
                         System.out.println("Book added successfully!");

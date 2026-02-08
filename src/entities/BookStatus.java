@@ -1,10 +1,10 @@
 package entities;
 
-public enum Status {
-        AVAILABLE,
-        BORROWED;
+public enum BookStatus {
+    AVAILABLE,
+    BORROWED;
 
-        public boolean isAvailable() {
-            return this == AVAILABLE;
-        }
+    public boolean isAvailable() {
+        return this == AVAILABLE;
+    }
 }
