@@ -29,6 +29,17 @@ public class InMemoryLibraryRepository implements LibraryRepository {
     }
 
     @Override
+    public List<Book> getAllBooks() {
+        return books;
+    }
+
+    // ---Members
+    @Override
+    public void addMember(Member member) {
+        members.add(member);
+    }
+
+    @Override
     public Member findMemberById(int memberId) {
         for (Member member : members) {
             if (member.getMemberId() == memberId) {
@@ -39,15 +50,11 @@ public class InMemoryLibraryRepository implements LibraryRepository {
     }
 
     @Override
-    public void addMember(Member member) {
-        members.add(member);
+    public List<Member> getAllMembers() {
+        return members;
     }
 
-    @Override
-    public List<Book> getAllBooks() {
-        return books;
-    }
-
+    // ---Record
     @Override
     public void addBorrowRecord(BorrowRecord record) {
         borrowRecords.add(record);

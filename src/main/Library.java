@@ -53,7 +53,7 @@ public class Library {
                 switch (option) {
 
                     case 1:
-                        //---Add book functionality
+                        // ---Add book functionality
                         System.out.print("\nEnter book Id (ISBN): ");
                         String bookId = scanner.nextLine();
 
@@ -74,7 +74,7 @@ public class Library {
                         break;
 
                     case 2:
-                        //---Add member functionality
+                        // ---Add member functionality
                         System.out.print("\nEnter first name: ");
                         String firstName = scanner.nextLine();
 
@@ -97,17 +97,19 @@ public class Library {
                         break;
 
                     case 5:
-                        System.out.println("\nView all members.");
-                        // for (Member n : members) {
-                        //     System.out.println(n.getMemberId() + " " + n.getMemberName());
-                        // }
+                        // --- List all Books functionality
+                        System.out.println("\nList of all Books in Galway Library");
+                        for (Book b : bookRepo.getAllBooks()) {
+                            System.out.println(b);
+                        }
                         break;
 
                     case 6:
-                        System.out.println("\nView all members.");
-                        // for (Member n : members) {
-                        //     System.out.println(n);
-                        // }
+                        // --- List all Members functionality
+                        System.out.println("\nList of all members of Galway Library.");
+                        for (Member m : bookRepo.getAllMembers()) {
+                            System.out.println(m);
+                        }
                         break;
 
                     case 7:
