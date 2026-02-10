@@ -23,5 +23,7 @@ public interface LibraryRepository {
 
     List<BorrowRecord> getBorrowRecords();
 
-    void showBooksInMemberPossession(int memberId, List<BorrowRecord> records);
+    void showBooksInMemberPossession(int memberId, List<BorrowRecord> records);//might remove
+
+    long countBooksBorrowedByMember(int memberId);
 }

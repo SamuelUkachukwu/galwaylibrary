@@ -4,6 +4,8 @@ import adapters.LibraryRepository;
 import entities.Book;
 import entities.Member;
 import frameworks.InMemoryLibraryRepository;
+import usecases.BorrowBookUseCase;
+
 import java.util.Scanner;
 
 public class Library {
@@ -32,6 +34,8 @@ public class Library {
         LibraryRepository bookRepo = new InMemoryLibraryRepository();
         testData(bookRepo);
 
+        BorrowBookUseCase borrowBookUseCase = new BorrowBookUseCase(bookRepo);
+
         int option = 0;
 
         try (Scanner scanner = new Scanner(System.in)) {
@@ -52,7 +56,7 @@ public class Library {
 
                 switch (option) {
 
-                    case 1:
+                    case 1: {
                         // ---Add book functionality
                         System.out.print("\nEnter book Id (ISBN): ");
                         String bookId = scanner.nextLine();
@@ -72,7 +76,7 @@ public class Library {
 
                         System.out.println("Book added successfully!");
                         break;
-
+                    }
                     case 2:
                         // ---Add member functionality
                         System.out.print("\nEnter first name: ");
@@ -89,7 +93,13 @@ public class Library {
                         break;
 
                     case 3:
-                        System.out.println("\nBorrow a book");
+                        System.out.print("Enter member ID: ");
+                        int memberId = scanner.nextInt();
+
+                        System.out.print("Enter book ID: ");
+                        String bookId = scanner.next();
+
+                        borrowBookUseCase.execute(memberId, bookId);
                         break;
 
                     case 4:

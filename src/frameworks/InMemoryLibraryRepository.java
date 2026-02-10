@@ -81,4 +81,17 @@ public class InMemoryLibraryRepository implements LibraryRepository {
         }
     }
 
+    @Override
+    public long countBooksBorrowedByMember(int memberId) {
+        long count = 0;
+
+        for (BorrowRecord r : borrowRecords) {
+            if (r.getMemberId() == memberId && !r.isReturned()) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
 }
