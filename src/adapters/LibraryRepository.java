@@ -21,7 +21,7 @@ public interface LibraryRepository {
     // ---Records
     void addBorrowRecord(BorrowRecord record);
 
-    List<BorrowRecord> getBorrowRecords();
+    BorrowRecord getBorrowRecords(String bookId);
 
     void showBooksInMemberPossession(int memberId, List<BorrowRecord> records);//might remove
 

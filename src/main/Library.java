@@ -5,6 +5,7 @@ import entities.Book;
 import entities.Member;
 import frameworks.InMemoryLibraryRepository;
 import usecases.BorrowBookUseCase;
+import usecases.ReturnBookUseCase;
 
 import java.util.Scanner;
 
@@ -35,6 +36,7 @@ public class Library {
         testData(bookRepo);
 
         BorrowBookUseCase borrowBookUseCase = new BorrowBookUseCase(bookRepo);
+        ReturnBookUseCase returnBookUseCase = new ReturnBookUseCase(bookRepo);
 
         int option = 0;
 
@@ -92,20 +94,25 @@ public class Library {
                         System.out.println(member);
                         break;
 
-                    case 3:
-                        System.out.print("Enter member ID: ");
+                    case 3: {
+                        // ---Borrow a book functionality
+                        System.out.print("\nEnter member ID: ");
                         int memberId = scanner.nextInt();
 
-                        System.out.print("Enter book ID: ");
+                        System.out.print("\nEnter book ID: ");
                         String bookId = scanner.next();
 
                         borrowBookUseCase.execute(memberId, bookId);
                         break;
+                    }
+                    case 4: {
+                        // ---Return a Book functionality 
+                        System.out.print("\nEnter book ID: ");
+                        String bookId = scanner.next();
 
-                    case 4:
-                        System.out.println("\nReturn a book");
+                        returnBookUseCase.execute(bookId);
                         break;
-
+                    }
                     case 5:
                         // --- List all Books functionality
                         System.out.println("\nList of all Books in Galway Library");
@@ -123,6 +130,7 @@ public class Library {
                         break;
 
                     case 7:
+                        // ---Exit case 
                         System.out.println("\nExiting program...");
                         break;
 

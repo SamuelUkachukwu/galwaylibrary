@@ -61,8 +61,13 @@ public class InMemoryLibraryRepository implements LibraryRepository {
     }
 
     @Override
-    public List<BorrowRecord> getBorrowRecords() {
-        return borrowRecords;
+    public BorrowRecord getBorrowRecords(String bookId) {
+        for (BorrowRecord r : borrowRecords) {
+            if (r.getBookId().equals(bookId) && !r.isReturned()) {
+                return r;
+            }
+        }
+        return null;
     }
 
     @Override
