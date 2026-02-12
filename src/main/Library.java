@@ -6,6 +6,7 @@ import entities.Member;
 import frameworks.InMemoryLibraryRepository;
 import usecases.BorrowBookUseCase;
 import usecases.ReturnBookUseCase;
+import usecases.SearchBookUseCase;
 
 import java.util.Scanner;
 
@@ -37,12 +38,13 @@ public class Library {
 
         BorrowBookUseCase borrowBookUseCase = new BorrowBookUseCase(bookRepo);
         ReturnBookUseCase returnBookUseCase = new ReturnBookUseCase(bookRepo);
+        SearchBookUseCase searchBookUseCase = new SearchBookUseCase(bookRepo);
 
         int option = 0;
 
         try (Scanner scanner = new Scanner(System.in)) {
 
-            while (option != 7) {
+            while (option != 8) {
 
                 System.out.println("\n1. Add a new book");
                 System.out.println("2. Register a library member");
@@ -50,7 +52,8 @@ public class Library {
                 System.out.println("4. Return a book");
                 System.out.println("5. View all available books");
                 System.out.println("6. View all members");
-                System.out.println("7. Exit");
+                System.out.println("7. Search for a book");
+                System.out.println("8. Exit");
 
                 System.out.print("Enter option: ");
                 option = scanner.nextInt();
@@ -106,7 +109,7 @@ public class Library {
                         break;
                     }
                     case 4: {
-                        // ---Return a Book functionality 
+                        // ---Return a Book functionality
                         System.out.print("\nEnter book ID: ");
                         String bookId = scanner.next();
 
@@ -129,8 +132,15 @@ public class Library {
                         }
                         break;
 
-                    case 7:
-                        // ---Exit case 
+                    case 7: {
+                        // --- Seach for a book functionality
+                        System.out.print("\nEnter book ID: ");
+                         String bookId = scanner.next();
+                        searchBookUseCase.searchById(bookId);
+                        break;
+                    }
+                    case 8:
+                        // ---Exit case
                         System.out.println("\nExiting program...");
                         break;
 
