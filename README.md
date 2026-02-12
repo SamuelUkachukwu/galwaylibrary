@@ -27,15 +27,19 @@ The system follows clean architecture principles by storing files in the appropr
   * src/
      adapters/
       LibraryRepository.java
+  * src/
      entities/
       Book.java
       BookStatus.java
       BorrowRecord.java
       Member.java
+  * src/
      frameworks/
       InMemoryLibraryRepository.java
+  * src/
      main/
       Library.java
+  * src/
      usecases/
       AddBookUseCase.java
       BorrowBookUseCase.java
