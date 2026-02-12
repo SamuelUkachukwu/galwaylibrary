@@ -39,7 +39,8 @@ public class BorrowBookUseCase {
         book.borrowBook();
         libraryRepository.addBorrowRecord(new BorrowRecord(bookId, memberId));
 
-        System.out.println("Book borrowed successfully to " + memberId + ": " + member.getMemberName());
+        System.out.println(
+                "Book borrowed successfully to member \nID No: " + memberId + "\nName: " + member.getMemberName());
         // if (book != null && member != null && book.isAvailable()) {
         // book.borrowBook();
         // //book.setBookId(true);
