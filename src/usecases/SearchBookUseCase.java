@@ -2,30 +2,23 @@ package usecases;
 
 import entities.Book;
 import adapters.LibraryRepository;
-import java.util.Optional;
 
-public class SearchBookUsecase {
+public class SearchBookUseCase {
     private LibraryRepository libraryRepository;
 
-    public SearchBookUsecase(LibraryRepository libraryRepository) {
+    public SearchBookUseCase(LibraryRepository libraryRepository) {
         this.libraryRepository = libraryRepository;
     }
 
-    public String searchById(String bookId) {
-        Optional<Book> optionalBook = libraryRepository.findBookById(bookId);
+    public void searchById(String bookId) {
+        Book foundBook = libraryRepository.findBookById(bookId);
 
-        if(optionalBook.isPresent()) {
-            Book book = optionalBook.get();
-
-            return "Title: " + book.getBookName()
-                + "Author: " + book.getAuthor()
-                + "Year Published: " + book.yearPublished();
+        if (foundBook != null) {
+            System.out.println("Title: " + foundBook.getBookName()
+                    + "Author: " + foundBook.getAuthor()
+                    + "Year Published: " + foundBook.getYearPublished());
         } else {
-            return "Book not found";
+            System.out.print("Book not found");
         }
     }
-
-    // public Optional<Book> searchBookById(String bookId) {
-    //     return libraryRepository.findBookById(bookId);
-    // }
 }
