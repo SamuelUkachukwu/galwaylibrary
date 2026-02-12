@@ -4,3 +4,20 @@ The pair programming project introduces a library management system for borrwing
 ## Agile Planning
 
 This project was developed using agile methodologies by delivering small features in incremental sprints.
+## The-Scope-Plane
+
+* Ability to perform CRUD functionality on books and members
+## The-Structure-Plane
+
+### Features
+
+**Navigation Menu**
+The following navigation items are available command line interface:
+  * Add a new book
+  * Register a library member
+  * Borrow a book
+  * Return a book
+  * View all available books
+  * View all members
+  * Search for a book
+  * Exit
