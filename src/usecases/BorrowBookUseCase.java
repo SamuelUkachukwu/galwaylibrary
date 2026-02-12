@@ -41,16 +41,6 @@ public class BorrowBookUseCase {
 
         System.out.println(
                 "Book borrowed successfully to member \nID No: " + memberId + "\nName: " + member.getMemberName());
-        // if (book != null && member != null && book.isAvailable()) {
-        // book.borrowBook();
-        // //book.setBookId(true);
-        // //libraryRepository.updateBook(book);
-        // libraryRepository.addBorrowRecord(new BorrowRecord(bookId, memberId));
-        // System.out.println("Book borrowed successfully. Book ID: " +
-        // book.getBookId());
-        // } else {
-        // System.out.println("Failed to borrow book.");
-        // }
     }
 
 }
