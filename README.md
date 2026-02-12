@@ -21,3 +21,27 @@ The following navigation items are available command line interface:
   * View all members
   * Search for a book
   * Exit
+
+## Clean Architecture
+The system follows clean architecture principles by storing files in the appropriate folders:
+  * src/
+     adapters/
+      LibraryRepository.java
+     entities/
+      Book.java
+      BookStatus.java
+      BorrowRecord.java
+      Member.java
+     frameworks/
+      InMemoryLibraryRepository.java
+     main/
+      Library.java
+     usecases/
+      AddBookUseCase.java
+      BorrowBookUseCase.java
+      ListBooksUseCase.java
+      RegisterMemberUseCase.java
+      ReturnMemberUseCase.java
+      ReturnBookUseCase.java
+      SearchBookUseCase.java
+     
