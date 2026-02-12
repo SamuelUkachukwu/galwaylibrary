@@ -49,3 +49,5 @@ The system follows clean architecture principles by storing files in the appropr
       ReturnBookUseCase.java
       SearchBookUseCase.java
      
+## SOLID Principles
+Each class in the entities folder adhered to the S principle by only having one responsibility and keeping all functionality related. The O principle was applied to the ReturnBookUseCase.java file in the usecases folder. The L principle was applied to the Member.java file. The file in the adapters folder adheres to the I principle. The D principle was used by the InMemoryLibraryRepository.java file in the frameworks folder
