@@ -10,15 +10,7 @@ public class SearchBookUseCase {
         this.libraryRepository = libraryRepository;
     }
 
-    public void searchById(String bookId) {
-        Book foundBook = libraryRepository.findBookById(bookId);
-
-        if (foundBook != null) {
-            System.out.println("Title: " + foundBook.getBookName()
-                    + "Author: " + foundBook.getAuthor()
-                    + "Year Published: " + foundBook.getYearPublished());
-        } else {
-            System.out.print("Book not found");
-        }
+    public Book searchById(String bookId) {
+        return libraryRepository.findBookById(bookId);
     }
 }

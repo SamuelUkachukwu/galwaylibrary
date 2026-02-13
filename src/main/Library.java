@@ -56,8 +56,16 @@ public class Library {
                 System.out.println("8. Exit");
 
                 System.out.print("Enter option: ");
-                option = scanner.nextInt();
-                scanner.nextLine();
+
+                String input = scanner.nextLine();
+
+                // ---Catch input mismatch
+                try {
+                    option = Integer.parseInt(input);
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input! Please enter a number between 1 and 8.");
+                    continue;
+                }
 
                 switch (option) {
 
@@ -66,20 +74,36 @@ public class Library {
                         System.out.print("\nEnter book Id (ISBN): ");
                         String bookId = scanner.nextLine();
 
+                        Book bookIdInLibrary = searchBookUseCase.searchById(bookId);
+
+                        // ---checks if book ID already exist in library
+                        if (bookIdInLibrary != null) {
+                            System.out.println("A Book with ID: " + bookId + " already exists.\n" + bookIdInLibrary);
+                            break;
+                        }
+
                         System.out.print("\nEnter name of the book: ");
                         String bookName = scanner.nextLine();
 
                         System.out.print("\nEnter name of the author: ");
                         String authorName = scanner.nextLine();
 
-                        System.out.print("\nEnter publication year: ");
-                        int publicationYear = scanner.nextInt();
-                        scanner.nextLine();
+                        int publicationYear = 0;
+                        while (true) {
+                            System.out.print("\nEnter publication year: ");
+                            String yearInput = scanner.nextLine();
+                            try {
+                                publicationYear = Integer.parseInt(yearInput);
+                                break;
+                            } catch (NumberFormatException e) {
+                                System.out.println("Wrong input! Please enter a valid year in numbers.");
+                            }
+                        }
 
                         Book book = new Book(bookId, bookName, authorName, publicationYear);
                         bookRepo.addBook(book);
 
-                        System.out.println("Book added successfully!");
+                        System.out.println("\nBook added successfully!\n" + book);
                         break;
                     }
                     case 2:
@@ -93,17 +117,16 @@ public class Library {
                         Member member = new Member(firstName, lastName);
                         bookRepo.addMember(member);
 
-                        System.out.println("Member registered successfully!");
-                        System.out.println(member);
+                        System.out.println("\nMember registered successfully!\n" + member);
                         break;
 
                     case 3: {
                         // ---Borrow a book functionality
                         System.out.print("\nEnter member ID: ");
-                        int memberId = scanner.nextInt();
+                        int memberId = Integer.parseInt(scanner.nextLine());
 
                         System.out.print("\nEnter book ID: ");
-                        String bookId = scanner.next();
+                        String bookId = scanner.nextLine();
 
                         borrowBookUseCase.execute(memberId, bookId);
                         break;
@@ -135,8 +158,15 @@ public class Library {
                     case 7: {
                         // --- Seach for a book functionality
                         System.out.print("\nEnter book ID: ");
-                         String bookId = scanner.next();
-                        searchBookUseCase.searchById(bookId);
+                        String bookId = scanner.next();
+
+                        Book foundBook = searchBookUseCase.searchById(bookId);
+
+                        if (foundBook != null) {
+                            System.out.println(foundBook);
+                        } else {
+                            System.out.println("Book not found");
+                        }
                         break;
                     }
                     case 8:
@@ -145,7 +175,7 @@ public class Library {
                         break;
 
                     default:
-                        System.out.println("\nInvalid option");
+                        System.out.println("\nInvalid option! Please enter a number between 1 and 8.");
                 }
             }
         }
