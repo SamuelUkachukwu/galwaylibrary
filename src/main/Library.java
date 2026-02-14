@@ -4,11 +4,10 @@ import adapters.LibraryRepository;
 import entities.Book;
 import entities.Member;
 import frameworks.InMemoryLibraryRepository;
+import java.util.Scanner;
 import usecases.BorrowBookUseCase;
 import usecases.ReturnBookUseCase;
 import usecases.SearchBookUseCase;
-
-import java.util.Scanner;
 
 public class Library {
 
@@ -135,6 +134,7 @@ public class Library {
                         // ---Return a Book functionality
                         System.out.print("\nEnter book ID: ");
                         String bookId = scanner.next();
+                        scanner.nextLine(); //consume scanner
 
                         returnBookUseCase.execute(bookId);
                         break;
@@ -159,6 +159,7 @@ public class Library {
                         // --- Seach for a book functionality
                         System.out.print("\nEnter book ID: ");
                         String bookId = scanner.next();
+                        scanner.nextLine(); //consume scanner
 
                         Book foundBook = searchBookUseCase.searchById(bookId);
 
