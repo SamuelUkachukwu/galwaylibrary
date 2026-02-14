@@ -5,6 +5,7 @@ import entities.Book;
 import entities.BorrowRecord;
 
 public class ReturnBookUseCase {
+
     private final LibraryRepository libraryRepository;
 
     public ReturnBookUseCase(LibraryRepository libraryRepository) {
@@ -34,9 +35,9 @@ public class ReturnBookUseCase {
         book.returnBook();
         System.out.println(
                 "Book with ID: "
-                        + bookId + " Title: " + "'"
-                        + book.getBookName() + "'"
-                        + " successfully returned.");
+                + bookId + " Title: " + "'"
+                + book.getBookName() + "'"
+                + " successfully returned.");
 
     }
 }

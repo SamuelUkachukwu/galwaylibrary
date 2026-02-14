@@ -4,6 +4,7 @@ import adapters.LibraryRepository;
 import entities.Book;
 
 public class AddBookUseCase {
+
     private final LibraryRepository libraryRepository;
 
     public AddBookUseCase(LibraryRepository libraryRepository) {

@@ -6,6 +6,8 @@ import entities.Member;
 import frameworks.InMemoryLibraryRepository;
 import java.util.Scanner;
 import usecases.BorrowBookUseCase;
+import usecases.ListBooksUseCase;
+import usecases.ListMembersUseCase;
 import usecases.ReturnBookUseCase;
 import usecases.SearchBookUseCase;
 
@@ -38,6 +40,8 @@ public class Library {
         BorrowBookUseCase borrowBookUseCase = new BorrowBookUseCase(bookRepo);
         ReturnBookUseCase returnBookUseCase = new ReturnBookUseCase(bookRepo);
         SearchBookUseCase searchBookUseCase = new SearchBookUseCase(bookRepo);
+        ListBooksUseCase listBooksUseCase = new ListBooksUseCase(bookRepo);
+        ListMembersUseCase listMembersUseCase = new ListMembersUseCase(bookRepo);
 
         int option = 0;
 
@@ -142,17 +146,13 @@ public class Library {
                     case 5:
                         // --- List all Books functionality
                         System.out.println("\nList of all Books in Galway Library");
-                        for (Book b : bookRepo.getAllBooks()) {
-                            System.out.println(b);
-                        }
+                        listBooksUseCase.execute();
                         break;
 
                     case 6:
                         // --- List all Members functionality
                         System.out.println("\nList of all members of Galway Library.");
-                        for (Member m : bookRepo.getAllMembers()) {
-                            System.out.println(m);
-                        }
+                        listMembersUseCase.execute();
                         break;
 
                     case 7: {
